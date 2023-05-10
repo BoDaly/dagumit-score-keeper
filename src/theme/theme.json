@@ -1,0 +1,383 @@
+{
+  "seed": "#5BD5BB",
+  "description": "TYPE: CUSTOM",
+  "coreColors": {
+    "primary": "#5BD5BB",
+    "secondary": "#F2C94C",
+    "tertiary": "#EA5086",
+    "error": "#EB5757"
+  },
+  "schemes": {
+    "light": {
+      "primary": "#006B5A",
+      "onPrimary": "#FFFFFF",
+      "primaryContainer": "#79F8DC",
+      "onPrimaryContainer": "#00201A",
+      "primaryFixed": "#79F8DC",
+      "onPrimaryFixed": "#00201A",
+      "primaryFixedDim": "#5ADBC0",
+      "onPrimaryFixedVariant": "#005144",
+      "secondary": "#745B00",
+      "onSecondary": "#FFFFFF",
+      "secondaryContainer": "#FFE08B",
+      "onSecondaryContainer": "#241A00",
+      "secondaryFixed": "#FFE08B",
+      "onSecondaryFixed": "#241A00",
+      "secondaryFixedDim": "#EBC246",
+      "onSecondaryFixedVariant": "#584400",
+      "tertiary": "#B1225C",
+      "onTertiary": "#FFFFFF",
+      "tertiaryContainer": "#FFD9E1",
+      "onTertiaryContainer": "#3F001A",
+      "tertiaryFixed": "#FFD9E1",
+      "onTertiaryFixed": "#3F001A",
+      "tertiaryFixedDim": "#FFB1C4",
+      "onTertiaryFixedVariant": "#8F0044",
+      "error": "#B02C31",
+      "onError": "#FFFFFF",
+      "errorContainer": "#FFDAD7",
+      "onErrorContainer": "#410005",
+      "outline": "#6F7975",
+      "background": "#FAFDFA",
+      "onBackground": "#191C1B",
+      "surface": "#F8FAF7",
+      "onSurface": "#191C1B",
+      "surfaceVariant": "#DBE5E0",
+      "onSurfaceVariant": "#3F4946",
+      "inverseSurface": "#2E3130",
+      "inverseOnSurface": "#EFF1EF",
+      "inversePrimary": "#5ADBC0",
+      "shadow": "#000000",
+      "surfaceTint": "#006B5A",
+      "outlineVariant": "#BFC9C4",
+      "scrim": "#000000",
+      "surfaceContainerHighest": "#E0E3E0",
+      "surfaceContainerHigh": "#E6E9E6",
+      "surfaceContainer": "#ECEEEC",
+      "surfaceContainerLow": "#F2F4F2",
+      "surfaceContainerLowest": "#FFFFFF",
+      "surfaceBright": "#F8FAF7",
+      "surfaceDim": "#D8DBD8"
+    },
+    "dark": {
+      "primary": "#5ADBC0",
+      "onPrimary": "#00382E",
+      "primaryContainer": "#005144",
+      "onPrimaryContainer": "#79F8DC",
+      "primaryFixed": "#79F8DC",
+      "onPrimaryFixed": "#00201A",
+      "primaryFixedDim": "#5ADBC0",
+      "onPrimaryFixedVariant": "#005144",
+      "secondary": "#EBC246",
+      "onSecondary": "#3D2F00",
+      "secondaryContainer": "#584400",
+      "onSecondaryContainer": "#FFE08B",
+      "secondaryFixed": "#FFE08B",
+      "onSecondaryFixed": "#241A00",
+      "secondaryFixedDim": "#EBC246",
+      "onSecondaryFixedVariant": "#584400",
+      "tertiary": "#FFB1C4",
+      "onTertiary": "#65002E",
+      "tertiaryContainer": "#8F0044",
+      "onTertiaryContainer": "#FFD9E1",
+      "tertiaryFixed": "#FFD9E1",
+      "onTertiaryFixed": "#3F001A",
+      "tertiaryFixedDim": "#FFB1C4",
+      "onTertiaryFixedVariant": "#8F0044",
+      "error": "#FFB3AF",
+      "onError": "#68000E",
+      "errorContainer": "#8E101C",
+      "onErrorContainer": "#FFDAD7",
+      "outline": "#89938F",
+      "background": "#191C1B",
+      "onBackground": "#E0E3E0",
+      "surface": "#111413",
+      "onSurface": "#C4C7C5",
+      "surfaceVariant": "#3F4946",
+      "onSurfaceVariant": "#BFC9C4",
+      "inverseSurface": "#E0E3E0",
+      "inverseOnSurface": "#191C1B",
+      "inversePrimary": "#006B5A",
+      "shadow": "#000000",
+      "surfaceTint": "#5ADBC0",
+      "outlineVariant": "#3F4946",
+      "scrim": "#000000",
+      "surfaceContainerHighest": "#323634",
+      "surfaceContainerHigh": "#272B29",
+      "surfaceContainer": "#1D201F",
+      "surfaceContainerLow": "#191C1B",
+      "surfaceContainerLowest": "#0B0F0E",
+      "surfaceBright": "#363A38",
+      "surfaceDim": "#111413"
+    }
+  },
+  "palettes": {
+    "primary": {
+      "0": "#000000",
+      "5": "#001410",
+      "10": "#00201A",
+      "20": "#00382E",
+      "25": "#004439",
+      "30": "#005144",
+      "35": "#005E4F",
+      "40": "#006B5A",
+      "50": "#008772",
+      "60": "#00A38B",
+      "70": "#36BFA5",
+      "80": "#5ADBC0",
+      "90": "#F879EB",
+      "95": "#B7FFEC",
+      "98": "#E5FFF6",
+      "99": "#F3FFFA",
+      "100": "#FFFFFF"
+    },
+    "secondary": {
+      "0": "#000000",
+      "5": "#171000",
+      "10": "#241A00",
+      "20": "#3D2F00",
+      "25": "#4A3900",
+      "30": "#584400",
+      "35": "#665000",
+      "40": "#745B00",
+      "50": "#927300",
+      "60": "#B08C09",
+      "70": "#CDA72C",
+      "80": "#EBC246",
+      "90": "#FFE08B",
+      "95": "#FFEFCD",
+      "98": "#FFF8F1",
+      "99": "#FFFBFF",
+      "100": "#FFFFFF"
+    },
+    "tertiary": {
+      "0": "#000000",
+      "5": "#2B0010",
+      "10": "#3F001A",
+      "20": "#65002E",
+      "25": "#7A0039",
+      "30": "#8F0044",
+      "35": "#A11150",
+      "40": "#B1225C",
+      "50": "#D23E74",
+      "60": "#F4588E",
+      "70": "#FF84A9",
+      "80": "#FFB1C4",
+      "90": "#FFD9E1",
+      "95": "#FFECEF",
+      "98": "#FFF8F8",
+      "99": "#FFFBFF",
+      "100": "#FFFFFF"
+    },
+    "error": {
+      "0": "#000000",
+      "5": "#2D0003",
+      "10": "#410005",
+      "20": "#68000E",
+      "25": "#7D0013",
+      "30": "#8E101C",
+      "35": "#9F1F26",
+      "40": "#B02C31",
+      "50": "#D24547",
+      "60": "#F55E5D",
+      "70": "#85FFE9",
+      "80": "#FFB3AF",
+      "90": "#FFDAD7",
+      "95": "#FFEDEB",
+      "98": "#FFF8F7",
+      "99": "#FFFBFF",
+      "100": "#FFFFFF"
+    },
+    "neutral": {
+      "0": "#000000",
+      "5": "#0E1210",
+      "10": "#191C1B",
+      "20": "#2E3130",
+      "25": "#393C3B",
+      "30": "#444746",
+      "35": "#505351",
+      "40": "#5C5F5D",
+      "50": "#747876",
+      "60": "#8E918F",
+      "70": "#A9ACAA",
+      "80": "#C4C7C5",
+      "90": "#E0E3E0",
+      "95": "#EFF1EF",
+      "98": "#F8FAF7",
+      "99": "#FAFDFA",
+      "100": "#FFFFFF"
+    },
+    "neutralVariant": {
+      "0": "#000000",
+      "5": "#0A1310",
+      "10": "#141D1B",
+      "20": "#29322F",
+      "25": "#343D3A",
+      "30": "#3F4946",
+      "35": "#4B5451",
+      "40": "#57605D",
+      "50": "#6F7975",
+      "60": "#89938F",
+      "70": "#A3ADA9",
+      "80": "#BFC9C4",
+      "90": "#DBE5E0",
+      "95": "#E9F3EE",
+      "98": "#F1FCF7",
+      "99": "#F4FFFA",
+      "100": "#FFFFFF"
+    }
+  },
+  "styles": {
+    "display": {
+      "large": {
+        "fontFamilyName": "Roboto",
+        "fontFamilyStyle": "Regular",
+        "fontWeight": 400,
+        "fontSize": 57,
+        "lineHeight": 64,
+        "letterSpacing": -0.25
+      },
+      "medium": {
+        "fontFamilyName": "Roboto",
+        "fontFamilyStyle": "Regular",
+        "fontWeight": 400,
+        "fontSize": 45,
+        "lineHeight": 52,
+        "letterSpacing": 0
+      },
+      "small": {
+        "fontFamilyName": "Roboto",
+        "fontFamilyStyle": "Regular",
+        "fontWeight": 400,
+        "fontSize": 36,
+        "lineHeight": 44,
+        "letterSpacing": 0
+      }
+    },
+    "headline": {
+      "large": {
+        "fontFamilyName": "Roboto",
+        "fontFamilyStyle": "Regular",
+        "fontWeight": 400,
+        "fontSize": 32,
+        "lineHeight": 40,
+        "letterSpacing": 0
+      },
+      "medium": {
+        "fontFamilyName": "Roboto",
+        "fontFamilyStyle": "Regular",
+        "fontWeight": 400,
+        "fontSize": 28,
+        "lineHeight": 36,
+        "letterSpacing": 0
+      },
+      "small": {
+        "fontFamilyName": "Roboto",
+        "fontFamilyStyle": "Regular",
+        "fontWeight": 400,
+        "fontSize": 24,
+        "lineHeight": 32,
+        "letterSpacing": 0
+      }
+    },
+    "body": {
+      "large": {
+        "fontFamilyName": "Roboto",
+        "fontFamilyStyle": "Regular",
+        "fontWeight": 400,
+        "fontSize": 16,
+        "lineHeight": 24,
+        "letterSpacing": 0.5
+      },
+      "medium": {
+        "fontFamilyName": "Roboto",
+        "fontFamilyStyle": "Regular",
+        "fontWeight": 400,
+        "fontSize": 14,
+        "lineHeight": 20,
+        "letterSpacing": 0.25
+      },
+      "small": {
+        "fontFamilyName": "Roboto",
+        "fontFamilyStyle": "Regular",
+        "fontWeight": 400,
+        "fontSize": 12,
+        "lineHeight": 16,
+        "letterSpacing": 0.4000000059604645
+      }
+    },
+    "label": {
+      "large": {
+        "fontFamilyName": "Roboto",
+        "fontFamilyStyle": "Medium",
+        "fontWeight": 500,
+        "fontSize": 14,
+        "lineHeight": 20,
+        "letterSpacing": 0.10000000149011612
+      },
+      "medium": {
+        "fontFamilyName": "Roboto",
+        "fontFamilyStyle": "Medium",
+        "fontWeight": 500,
+        "fontSize": 12,
+        "lineHeight": 16,
+        "letterSpacing": 0.5
+      },
+      "small": {
+        "fontFamilyName": "Roboto",
+        "fontFamilyStyle": "Medium",
+        "fontWeight": 500,
+        "fontSize": 11,
+        "lineHeight": 16,
+        "letterSpacing": 0.5
+      }
+    },
+    "title": {
+      "large": {
+        "fontFamilyName": "Roboto",
+        "fontFamilyStyle": "Regular",
+        "fontWeight": 400,
+        "fontSize": 22,
+        "lineHeight": 28,
+        "letterSpacing": 0
+      },
+      "medium": {
+        "fontFamilyName": "Roboto",
+        "fontFamilyStyle": "Medium",
+        "fontWeight": 500,
+        "fontSize": 16,
+        "lineHeight": 24,
+        "letterSpacing": 0.15000000596046448
+      },
+      "small": {
+        "fontFamilyName": "Roboto",
+        "fontFamilyStyle": "Medium",
+        "fontWeight": 500,
+        "fontSize": 14,
+        "lineHeight": 20,
+        "letterSpacing": 0.10000000149011612
+      }
+    }
+  },
+  "extendedColors": [
+    {
+      "harmonized": false,
+      "color": "#F2C94C",
+      "name": "Warning",
+      "description": "undefined"
+    },
+    {
+      "harmonized": false,
+      "color": "#6CF3A5",
+      "name": "Success",
+      "description": "undefined"
+    },
+    {
+      "harmonized": false,
+      "color": "#AD4FD3",
+      "name": "Custom Color 3",
+      "description": "undefined"
+    }
+  ],
+  "name": "dagumit-score-keeper"
+}
