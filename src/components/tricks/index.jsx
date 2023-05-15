@@ -9,6 +9,7 @@ import {
   useTheme,
  } from "@mui/material";
 import React from "react";
+import { RoundHelper } from "../round-helper";
 
 export default function Tricks({updateTricks, nextRound, players, roundId}){
   const theme = useTheme();
@@ -22,6 +23,7 @@ export default function Tricks({updateTricks, nextRound, players, roundId}){
             type={'number'}
             defaultValue={0}
             onChange={(e) => {updateTricks(roundId, player.id, Number.parseInt(e.target.value))}}
+            onFocus={(e) => {e.target.select()}}
           />
         </FormControl>
         <Box>
@@ -36,6 +38,7 @@ export default function Tricks({updateTricks, nextRound, players, roundId}){
       <Grid item xs={12}>
         <Typography variant="titleLarge"> Round: </Typography>
         <Typography variant="titleLarge" color={theme.palette.primary.main}> {roundId} </Typography>
+        <RoundHelper roundCounter trickTracker />
       </Grid>
       <Grid item xs={12}>
         <Typography variant="titleLarge"> Tricks taken: </Typography>

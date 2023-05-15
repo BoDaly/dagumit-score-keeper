@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, FormControl, Grid, Input, Chip, IconButton, Box, Typography, useTheme } from "@mui/material";
 import { RemoveCircle, AddCircle } from "@mui/icons-material";
+import { RoundHelper } from "../round-helper";
 
 export default function SettingsForm({
   addPlayer,
@@ -31,19 +32,12 @@ export default function SettingsForm({
     })
   }
 
-  const subTitle = (
-    <Box>
-      <Typography variant="titleSmall" color={theme.palette.grey[500]}> Rounds: </Typography>
-      <Typography variant="titleSmall" color={theme.palette.primary.main}> {roundCount} </Typography>
-    </Box>
-  )
-
   return (
     <Grid container gap={2} minWidth={'100%'}>
       <Grid item xs={12}>
         <Typography variant="titleLarge"> Players: </Typography>
         <Typography variant="titleLarge" color={theme.palette.primary.main}> {players.length} </Typography>
-        <Chip size={'small'} label={subTitle} />
+        <RoundHelper roundCounter />
       </Grid>
       {playerNameInputs()}
       <Grid item xs={12}>

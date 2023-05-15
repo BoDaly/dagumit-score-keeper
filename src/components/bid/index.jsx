@@ -7,8 +7,10 @@ import {
   Chip,
   Button,
   useTheme,
+  Box,
  } from "@mui/material";
 import React from "react";
+import { RoundHelper } from "../round-helper";
 
 export default function Bid({updateBid, nextPhase, players, roundId}){
   const theme = useTheme();
@@ -22,6 +24,7 @@ export default function Bid({updateBid, nextPhase, players, roundId}){
             type={'number'}
             defaultValue={0}
             onChange={(e) => {updateBid(roundId, player.id, Number.parseInt(e.target.value))}}
+            onFocus={(e) => {e.target.select()}}
           />
         </FormControl>
       </Grid>
@@ -33,6 +36,7 @@ export default function Bid({updateBid, nextPhase, players, roundId}){
       <Grid item xs={12}>
         <Typography variant="titleLarge"> Round: </Typography>
         <Typography variant="titleLarge" color={theme.palette.primary.main}> {roundId} </Typography>
+        <RoundHelper roundCounter trickTracker />
       </Grid>
       <Grid item xs={12}>
         <Typography variant="titleLarge"> Bids: </Typography>

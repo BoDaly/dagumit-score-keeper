@@ -10,20 +10,29 @@ import {
 import SettingsForm from "../settings-form";
 import Round from "../round";
 import ScoreViewer from "../score-viewer";
+import { useMemo } from "react";
+import { useContext } from "react";
+import { AppContext } from "../../store";
 
 export default function ScoreKeeper() {
   const theme = useTheme();
-  
-  const defaultPlayer = {
-    name: `Player 1`,
-    id: 1,
-    rounds:[],
-  };
-  const [ players, setPlayers ] = useState([defaultPlayer]);
-  const [roundId, setRoundId] = useState(0)
+  const {
+    roundCount,
+    setRoundCount,
+    setPlayers,
+    players,
+    deckSize,
+    roundId,
+    setRoundId
+  } = useContext(AppContext);
+  console.log(JSON.stringify(useContext(AppContext)))
+
   const [phase, setPhase] = useState('bid')
-  const deckSize = 52;
-  const roundCount = Math.floor(deckSize / players.length);
+
+  useMemo(() => {
+    setRoundCount((Math.floor(deckSize / players.length)*2)-1)
+  }, [players])
+
   const skSettingsFormProps = {
     addPlayer,
     updatePlayerName,
