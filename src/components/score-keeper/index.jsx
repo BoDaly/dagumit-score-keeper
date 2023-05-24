@@ -1,20 +1,10 @@
-import React, { useState } from "react";
-import { 
-  Card,
-  Typography,
-  Grid,
-  useTheme,
-  Input,
-  Divider
-} from "@mui/material";
-import SettingsForm from "../settings-form";
-import Round from "../round";
-import ScoreViewer from "../score-viewer";
-import { useMemo } from "react";
-import { useContext } from "react";
+import React, { useState, useContext, useMemo } from "react";
+import { Card, Typography, Grid, useTheme, Divider} from "@mui/material";
+import { ScoreView, RoundView, SettingsView } from "../views";
 import { AppContext } from "../../store";
 
 export default function ScoreKeeper() {
+
   const theme = useTheme();
   const {
     roundCount,
@@ -25,7 +15,6 @@ export default function ScoreKeeper() {
     roundId,
     setRoundId
   } = useContext(AppContext);
-  console.log(JSON.stringify(useContext(AppContext)))
 
   const [phase, setPhase] = useState('bid')
 
@@ -41,6 +30,7 @@ export default function ScoreKeeper() {
     players,
     roundCount,
   }
+
   const roundProps = {
     roundCount,
     nextRound,
@@ -50,7 +40,9 @@ export default function ScoreKeeper() {
     setPhase,
     updateBid,
     updateTricks,
+    previousRound,
   }
+
   const scoreViewerProps = {
     players,
     roundId,
@@ -58,11 +50,13 @@ export default function ScoreKeeper() {
 
   function addPlayer(){
     const id = players.length + 1;
+
     const player = {
       name: `Player ${id}`,
       id,
       rounds:[],
     };
+
     const newPlayers = [...players];
     newPlayers.push(player);
     setPlayers(newPlayers);
@@ -100,6 +94,7 @@ export default function ScoreKeeper() {
 
   function seedRound(newRoundId) {
     const newPlayers = [...players];
+
     newPlayers.forEach(player => {
       player.rounds[newRoundId] = {
         bid: 0,
@@ -107,6 +102,7 @@ export default function ScoreKeeper() {
         score: 0
       };
     })
+
     setPlayers(newPlayers);
   }
 
@@ -118,6 +114,12 @@ export default function ScoreKeeper() {
     seedRound(newRoundId);
   }
 
+  function previousRound(){
+    const newRoundId = roundId - 1;
+    setRoundId(newRoundId);
+    setPhase('tricks');
+  }
+
   function determineScore(bid,tricks) {
     if(bid === tricks) return 5 + bid;
     if(bid > tricks) return -bid;
@@ -126,15 +128,16 @@ export default function ScoreKeeper() {
 
   function scoreRound() {
     const newPlayers = [...players];
+    console.log('new_players: ',newPlayers)
+
     newPlayers.forEach(player => {
       const {bid, tricks} = player.rounds[roundId]
       const score = determineScore(bid, tricks)
       player.rounds[roundId].score = score
     })
+
     setPlayers(newPlayers)
   }
-
-  console.log(roundProps)
 
   return (
     <Card
@@ -157,12 +160,12 @@ export default function ScoreKeeper() {
         <Grid item xs={12}>
           {
             roundId === 0 ?
-            <SettingsForm {...skSettingsFormProps} /> :
-            <Round {...roundProps} />
+            <SettingsView {...skSettingsFormProps} /> :
+            <RoundView {...roundProps} />
           }
         </Grid>
         <Grid item>
-          <ScoreViewer {...scoreViewerProps} />
+          <ScoreView {...scoreViewerProps} />
         </Grid>
       </Grid>
     </Card>

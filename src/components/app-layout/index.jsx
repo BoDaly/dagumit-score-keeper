@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Box, useTheme } from "@mui/material";
-import { AppContext } from "../app";
 
 export default function appLayout({children, paddingBottom}) {
   const theme = useTheme;

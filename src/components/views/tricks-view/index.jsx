@@ -8,11 +8,20 @@ import {
   Button,
   useTheme,
  } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { RoundHelper } from "../round-helper";
 
-export default function Tricks({updateTricks, nextRound, players, roundId}){
+export default function Tricks({updateTricks, nextRound, players, roundId, togglePhase}){
+
+  // Use effect to zero out tricks when re-entering the bid view.
+  useEffect(() => {
+    players.forEach((player) => {
+      updateTricks(roundId, player.id, player.rounds[roundId].trick = 0)
+    })
+  }, [])
+
   const theme = useTheme();
+
   const tricksInputs = players.map(player => {
     return (
       <Grid item key={`player-${player.id}-tricks-round-${roundId}-grid-item`}>
@@ -33,6 +42,7 @@ export default function Tricks({updateTricks, nextRound, players, roundId}){
       </Grid>
     )
   })
+  
   return (
     <Grid container gap={2} minWidth={'100%'}>
       <Grid item xs={12}>
@@ -46,6 +56,7 @@ export default function Tricks({updateTricks, nextRound, players, roundId}){
       {tricksInputs}
       <Grid item xs={12} textAlign={'right'}>
         <Button variant="contained" onClick={() => {nextRound()}}>Confirm</Button>
+        <Button variant="text" onClick={() => {togglePhase()}}>Back</Button>
       </Grid>
     </Grid>
   )

@@ -1,9 +1,9 @@
 import React from "react";
-import { Button, FormControl, Grid, Input, Chip, IconButton, Box, Typography, useTheme } from "@mui/material";
+import { Button, FormControl, Grid, Input, IconButton, Typography, useTheme } from "@mui/material";
 import { RemoveCircle, AddCircle } from "@mui/icons-material";
-import { RoundHelper } from "../round-helper";
+import { RoundHelper } from "../../round-helper";
 
-export default function SettingsForm({
+export default function SettingsView({
   addPlayer,
   updatePlayerName,
   removePlayer,

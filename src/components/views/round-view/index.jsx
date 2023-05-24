@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Grid } from "@mui/material";
-import Bid from "../bid";
-import Tricks from "../tricks";
+import { BidView, TricksView } from "..";
 
 export default function Round({
   roundCount,
@@ -12,24 +11,28 @@ export default function Round({
   phase,
   updateBid,
   updateTricks,
+  previousRound,
 }){
-  console.log(players);
+
   const bidProps = {
     roundCount,
-    nextPhase,
+    togglePhase,
     roundId,
     players,
     updateBid,
+    previousRound,
   }
+  
   const tricksProps = {
     roundCount,
+    togglePhase,
     nextRound,
     roundId,
     players,
     updateTricks,
   }
 
-  function nextPhase() {
+  function togglePhase() {
     if(phase === 'bid'){ setPhase('tricks') }
     else { setPhase('bid') }
   }
@@ -38,8 +41,8 @@ export default function Round({
     <Grid container gap={2} minWidth={'100%'}>
       {
         phase === 'bid' ?
-        (<Bid {...bidProps}/>) :
-        (<Tricks {...tricksProps}/>)
+        (<BidView {...bidProps}/>) :
+        (<TricksView {...tricksProps}/>)
       }
     </Grid>
   )
