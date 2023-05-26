@@ -8,7 +8,7 @@ import {
   useTheme,
  } from "@mui/material";
 import React, { useEffect } from "react";
-import { RoundHelper } from "../round-helper";
+import { RoundHelper } from "../../round-helper";
 
 export default function Bid({
   updateBid,

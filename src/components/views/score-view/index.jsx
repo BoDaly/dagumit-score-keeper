@@ -6,22 +6,31 @@ import {
   TableHead,
   TableRow,
   Typography,
-  Box,
-  Button,
-  Drawer,
+  SwipeableDrawer,
   useTheme,
   styled,
 } from "@mui/material";
 import React, { useMemo, useState } from "react";
+import { useEffect } from "react";
 
 export default function ScoreView({players, roundId}) {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
-  const roundLabels = []
+  const roundLabels = [];
+  const tableItemHeight = 57;
   
   for(let i = 1; i < roundId; i++){
     roundLabels.push(`Round ${i}`)
   }
+
+  const StrictHeightRow = styled(TableRow)(({ theme }) => `
+  height: ${tableItemHeight}px
+  `)
+
+  useEffect(() => {
+
+    console.log('players changed')
+  }, [players])
 
   const totals = useMemo(() => {
     return players.map(player => {
@@ -36,40 +45,44 @@ export default function ScoreView({players, roundId}) {
     })
   }, [players])
 
-  const Puller = styled(Button)(({ theme }) => ({
-    width: 30,
-    height: 6,
-    backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey[300] : theme.palette.grey[900],
-    borderRadius: 3,
-    position: 'absolute',
-    top: 8,
-    left: 'calc(50% - 15px)',
-  }));
+  const scoreHeight = useMemo(() => {
+    if ( roundId && roundId > 0 ) return (roundId - 1) * tableItemHeight;
+    return roundId * tableItemHeight;
+  }, [roundId])
+
+  const closedPosition = useMemo(() => {
+    return open ? '0' : `-${tableItemHeight * 2}px`;
+  }, [open, roundId])
 
   return (
     <>
-      <Drawer
+      <SwipeableDrawer
         anchor="bottom"
         onOpen={() => { setOpen(true) }}
         onClose={() => { setOpen(false) }}
         open={open}
-        onClick={() => { setOpen(!open) }}
-        allowSwipeInChildren={true}
-        swipeAreaWidth={114}
+        hysteresis={0.25}
+        // onClick={() => { setOpen(!open) }}
+        swipeAreaWidth={'114px'}
         sx={{
           '.MuiPaper-root': {
             overflowY: 'visible',
+            transform: `translateY(${scoreHeight + 114}px) ${!open ? '!important' : 'translateY(0px)'}`
           }
         }}
       >
         <TableContainer sx={{
+          backgroundColor: 'Background',
+          visibility: 'visible',
+          transform: `${!open ? 'translateY(-' + (tableItemHeight * 2) + 'px)}' : 'translateY(0px)' }`,
+          // height: `${scoreHeight}px`,
           '.MuiTable-root': {
             tableLayout: 'fixed'
           }
         }}>
           <Table>
             <TableHead>
-              <TableRow>
+              <StrictHeightRow>
                 <TableCell>
                   {' '}
                 </TableCell>
@@ -78,27 +91,10 @@ export default function ScoreView({players, roundId}) {
                     {player.name}
                   </TableCell>
                 ))}
-              </TableRow>
+              </StrictHeightRow>
             </TableHead>
             <TableBody>
-              {roundLabels.map((rl,i) => {
-                const roundCount = i+1;
-                return (
-                  <TableRow key={`round-${roundCount}-table-row`}>
-                    <TableCell>
-                      {rl}
-                    </TableCell>
-                    {players.map((player, ii) => {
-                      return (
-                        <TableCell key={`round-${roundCount}-player-${ii}-table-cell`}>
-                          {player.rounds[roundCount].score}
-                        </TableCell>
-                      )
-                    })}
-                  </TableRow>
-                )
-              })}
-              <TableRow>
+              <StrictHeightRow>
                 <TableCell>
                   <Typography color={theme.palette.primary.main}>Total</Typography>
                 </TableCell>
@@ -109,53 +105,29 @@ export default function ScoreView({players, roundId}) {
                     </TableCell>
                   )
                 })}
-              </TableRow>
+              </StrictHeightRow>
+              {roundLabels.map((rl,i) => {
+                const roundCount = i+1;
+                return (
+                  <StrictHeightRow key={`round-${roundCount}-table-row`}>
+                    <TableCell>
+                      {rl}
+                    </TableCell>
+                    {players.map((player, ii) => {
+                      return (
+                        <TableCell key={`round-${roundCount}-player-${ii}-table-cell`}>
+                          {player.rounds[roundCount].score}
+                        </TableCell>
+                      )
+                    })}
+                  </StrictHeightRow>
+                )
+              })}
+
             </TableBody>
           </Table>
         </TableContainer>
-      </Drawer>
-      <Box
-        sx={{
-          position: 'absolute',
-          backgroundColor: 'white',
-          borderTopLeftRadius: 8,
-          borderTopRightRadius: 8,
-          visibility: 'visible',
-          right: 0,
-          left: 0,
-          bottom: 0,
-        }}
-      >
-        <Puller onClick={() => { setOpen(!open) }}/>
-        <TableContainer
-          sx={{
-            '.MuiTable-root': {
-              tableLayout: 'fixed'
-            }
-          }}
-        >
-          <Table>
-            <TableHead>
-              <TableRow>
-                {players.map((player,i) => (
-                  <TableCell item key={`player-${i}-header-grid-item-header`}>
-                    {player.name}
-                  </TableCell>
-                ))}
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              <TableRow>
-                {totals.map((total, i) => (
-                  <TableCell key={`player-header-grid-item-total-${i}-header`}>
-                    <Typography color={theme.palette.primary.main}>{total}</Typography>
-                  </TableCell>
-                ))}
-              </TableRow>
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Box>
+      </SwipeableDrawer>
     </>
   )
 }
